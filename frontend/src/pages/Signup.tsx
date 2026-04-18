@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Lock, User, Phone, ArrowRight, Car } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../services/api';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +18,7 @@ const Signup = () => {
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8080/api/auth/signup', formData);
+      await api.post('/auth/signup', formData);
       navigate('/login');
     } catch (err: any) {
       setError(err.response?.data || 'Signup failed');

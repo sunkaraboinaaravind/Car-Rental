@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import { motion, AnimatePresence } from 'framer-motion';
 import { User as UserIcon, Mail, Phone, ShieldCheck, Calendar, X, Save, Edit } from 'lucide-react';
-import axios from 'axios';
+import api from '../services/api';
 
 const Profile = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user') || '{}'));
@@ -20,7 +20,7 @@ const Profile = () => {
     setLoading(true);
     setSuccess('');
     try {
-      const response = await axios.put('http://localhost:8080/api/auth/profile', {
+      const response = await api.put('/auth/profile', {
         ...formData,
         email: user.email,
         username: user.username

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Calendar, User, CreditCard, AlertCircle, MapPin } from 'lucide-react';
-import axios from 'axios';
+import api from '../services/api';
 
 interface BookingModalProps {
   car: any;
@@ -59,7 +59,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ car, isOpen, onClose, onSuc
     };
 
     try {
-      await axios.post('http://localhost:8080/api/bookings', bookingData);
+      await api.post('/bookings', bookingData);
       onSuccess();
     } catch (err: any) {
       setError(err.response?.data?.message || 'Booking failed. Please try again.');

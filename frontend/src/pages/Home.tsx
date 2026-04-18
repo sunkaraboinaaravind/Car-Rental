@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import CarCard from '../components/CarCard';
@@ -9,7 +9,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/cars')
+    api.get('/cars')
       .then(res => {
         setCars(res.data);
         setLoading(false);

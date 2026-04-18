@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 import Navbar from '../components/Navbar';
 import { motion } from 'framer-motion';
 import { Calendar, CreditCard, User, CheckCircle, XCircle, Clock, MapPin, AlertTriangle } from 'lucide-react';
@@ -13,7 +13,7 @@ const BookingHistory = () => {
 
   const fetchBookings = () => {
     if (user.email) {
-      axios.get(`http://localhost:8080/api/bookings/user/${user.email}`)
+      api.get(`/bookings/user/${user.email}`)
         .then(res => {
           setBookings(res.data);
           setLoading(false);
@@ -35,7 +35,7 @@ const BookingHistory = () => {
     // Actually, I'll just make it direct for now to ensure it works
     setCancellingId(id);
     try {
-      await axios.put(`http://localhost:8080/api/bookings/${id}/cancel`);
+      await api.put(`/bookings/${id}/cancel`);
       // Update local state immediately for better UX
       setBookings((prev: any) => prev.map((b: any) => b.id === id ? { ...b, status: 'CANCELLED' } : b));
     } catch (err) {

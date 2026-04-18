@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EliteDrive - Premium Car Rental System
 
 A full-stack car rental application built with Spring Boot, React, and PostgreSQL.
@@ -42,3 +43,6 @@ npm run dev
 
 ## License
 MIT
+=======
+# Car-Rental
+>>>>>>> e1c6ce90262132d3a40674a5681f031944cec1a3
