@@ -5,7 +5,7 @@ import Hero from '../components/Hero';
 import CarCard from '../components/CarCard';
 
 const Home = () => {
-  const [cars, setCars] = useState([]);
+  const [cars, setCars] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
