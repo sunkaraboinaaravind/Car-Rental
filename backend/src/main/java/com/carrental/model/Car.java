@@ -29,4 +29,6 @@ public class Car {
     private boolean available = true;
 
     private String description;
+
+    private String location = "Hyderabad, India"; // Default location
 }

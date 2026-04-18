@@ -27,12 +27,20 @@ public class Booking {
     private String customerEmail;
 
     @Column(nullable = false)
+    private String customerPhone;
+
+    @Column(nullable = false)
     private LocalDate startDate;
 
     @Column(nullable = false)
     private LocalDate endDate;
 
     private Double totalPrice;
+
+    private boolean driverRequested = false;
+    private Double driverCharges = 0.0;
+
+    private String pickupLocation;
 
     @Enumerated(EnumType.STRING)
     private BookingStatus status = BookingStatus.PENDING;
